@@ -1,5 +1,6 @@
 //The structure for gamma matrix
 #include <complex>
+#include <iostream>
 
 using namespace std;
 
@@ -83,9 +84,17 @@ struct dirac_matr
   }
 };
 
-inline ostream &operator<<(ostream &os, const dirac_matr &m) {
+inline ostream &operator<<(ostream &os, const dirac_matr &m)
+{
   for(int i=0;i<4;i++)
-    os<<m.pos[i]<<" "<<m.entr[i]<<" ";
+    {
+      for(int j=0;j<4;j++)
+	if(m.pos[i]==j)
+	  os<<" "<<m.entr[j];
+	else
+	  os<<" (0,0)";
+      os<<endl;
+    }
   
   return os;
 }
@@ -107,3 +116,9 @@ constexpr dirac_matr gam[16]=
    gam[2]*gam[3],
    gam[3]*gam[1],
    gam[1]*gam[2]};
+
+int main()
+{
+  cout<<"gamma5: \n"<<gam[5]<<endl;
+  cout<<" g4g1g2g3:\n"<<gam[4]*gam[1]*gam[2]*gam[3]<<endl;
+}
