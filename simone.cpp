@@ -120,5 +120,5 @@ constexpr dirac_matr gam[16]=
 int main()
 {
   cout<<"gamma5: \n"<<gam[5]<<endl;
-  cout<<" g4g1g2g3:\n"<<gam[4]*gam[1]*gam[2]*gam[3]<<endl;
+  cout<<"g4g1g2g3:\n"<<gam[4]*gam[1]*gam[2]*gam[3]<<endl;
 }
